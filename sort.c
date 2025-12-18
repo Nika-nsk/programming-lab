@@ -13,3 +13,4 @@ void BubbleSort (int A[], int n, int *C, int *M) {
         }
     }
 }
+// новый комментарий
