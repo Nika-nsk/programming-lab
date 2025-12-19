@@ -14,3 +14,9 @@ void BubbleSort (int A[], int n, int *C, int *M) {
     }
 }
 // новый комментарий
+main(){ 
+int a[] = {4, 2, 0};
+int n = sizeof(a)/sizeof(a)[0];
+bubbleSort(a,n);
+return 0;
+}
