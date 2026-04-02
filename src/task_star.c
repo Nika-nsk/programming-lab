@@ -1,3 +1,5 @@
+// Не должно быть ошибок в ASan / valgrind. Программа должна отработать без падений
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -267,7 +269,7 @@ void test_qos_monitoring() {
     
     printf("DL Speed: %.2f Mbps\n", metrics.dl_speed);
     printf("Latency: %d ms\n", metrics.latency_ms);
-    printf("Packet Loss: %d ms\n", metrics.packet_loss); // Неинициализировано
+    printf("Packet Loss: %d ms\n", metrics.packet_loss);
 }
 
 int main() {
