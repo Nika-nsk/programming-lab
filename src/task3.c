@@ -2,7 +2,7 @@
 
 // ???
 
-#define SQR(x) x * x
+#define SQR(x) ((x) * (x))
 
 int main() {
     int y = 5;

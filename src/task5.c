@@ -16,7 +16,7 @@ Decrypted: The quick brown fox jumps over the lazy dog
 === Test 2: Vigenere Cipher ===
 Original: ATTACKATDAWN
 Keyword: LEMON
-Encrypted: ATTACKATDAWN
+Encrypted: LXFOPVEFRNHR
 
 === Test 3: RC4-like Cipher ===
 Original: Secret message
@@ -40,20 +40,21 @@ Hash of "Test": 1295
 #include <ctype.h>
 #include <time.h>
 
-void xor_encrypt(char *text, char *key, char *output) {
-    int text_len = strlen(text);
+void xor_encrypt(char *text, char *key, char *output, int text_len) {
+   
     int key_len = strlen(key);
     
-    for (int i = 0; i <= text_len; i++) {
+    for (int i = 0; i < text_len; i++) {
         output[i] = text[i] ^ key[i % key_len];
     }
+    output[text_len] ='\0'; // ?
 }
 
 void caesar_cipher(char *text, int shift, char *output) {
     int len = strlen(text);
-    
+    shift = (shift % 26 + 26) % 26;                                 //
     for (int i = 0; i < len; i++) {
-        if (text[i] > 'a' && text[i] < 'z') {
+        if (text[i] > 'a' && text[i] <= 'z') {
             output[i] = ((text[i] - 'a' + shift) % 26) + 'a';
         } else if (text[i] >= 'A' && text[i] <= 'Z') {
             output[i] = ((text[i] - 'A' + shift) % 26) + 'A';
@@ -61,6 +62,7 @@ void caesar_cipher(char *text, int shift, char *output) {
             output[i] = text[i];
         }
     }
+    output[len] ='\0';
 }
 
 void vigenere_encrypt(char *text, char *keyword, char *output) {
@@ -70,8 +72,8 @@ void vigenere_encrypt(char *text, char *keyword, char *output) {
     
     for (int i = 0; i < text_len; i++) {
         if (isalpha(text[i])) {
-            int shift = keyword[key_index % key_len] - 'a';
-            output[i] = text[i] + shift;
+            int shift = keyword[key_index % key_len] - 'A';
+            output[i] = ((text[i] - 'A' + shift) % 26) + 'A';
             key_index++;
         } else {
             output[i] = text[i];
@@ -89,7 +91,7 @@ void simple_rc4(char *key, int key_len, char *data, int data_len) {
         S[i] = i;
     }
     
-    for (i = 0; i < 256 + 32; i++) {
+    for (i = 0; i < 256; i++) {
         j = (j + S[i] + key[i % key_len]) % 256;
         temp = S[i];
         S[i] = S[j];
@@ -111,20 +113,23 @@ void simple_rc4(char *key, int key_len, char *data, int data_len) {
 
 unsigned int simple_hash(char *str) {
     unsigned int hash = 0;
-    
-    for (int i = 0; i <= sizeof(str); i++) {
-        hash += str[i] * (i + 1) + 50;
+    int len=strlen(str);                          // брал мусор раньше из-за того что делал лишнии итерации
+    for (int i = 0; i < len; i++) {
+        hash += (str[i] * (i + 1) + 50);
+        
     }
     
-    return hash;
+   return hash;
 }
 
 void generate_key(char *key, int length) {
-    srand(time(NULL));
+   // убрала srand в другое место
     
-    for (int i = 0; i <= length; i++) {
-        key[i] = 'a' + (rand() % 26);
+    for (int i = 0; i < length; i++) {
+        key[i] = 'a' + (rand() % 26 );
     }
+    key[length] = '\0'; //добавила что бы он не считывал эльфийский после строки
+   
 }
 
 // ============= ТЕСТОВЫЕ ФУНКЦИИ =============
@@ -135,8 +140,8 @@ void test_xor_cipher() {
     char text[] = "Hello World";
     char key[] = "secret";
     char output[20];
-    
-    xor_encrypt(text, key, output);
+    int text_len= strlen(text);
+    xor_encrypt(text, key, output, text_len);
     printf("Original: %s\n", text);
     printf("Encrypted: ");
     for (int i = 0; i < strlen(text); i++) {
@@ -145,7 +150,7 @@ void test_xor_cipher() {
     printf("\n");
     
     char decrypted[20];
-    xor_encrypt(output, key, decrypted);
+    xor_encrypt(output, key, decrypted, text_len);
     printf("Decrypted: %s\n", decrypted);
 }
 
@@ -209,7 +214,7 @@ void test_hash_function() {
 
 void test_key_generation() {
     printf("\n=== Test 5: Key Generation ===\n");
-    
+     srand(time(NULL));
     char key[10];
     generate_key(key, 10);
     printf("Generated key: %s\n", key);

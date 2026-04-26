@@ -1,15 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
-// Проблема: number.num != 1025?
 
 typedef struct {
-    char str[4];
+    char str[12];
     int num;
 } NumberRepr;
 
 void format(NumberRepr* number) {
-    sprintf(number->str, "%3d", number->num);
+    snprintf(number->str, sizeof(number->str), "%d", number->num);
 }
 
 int main() {
