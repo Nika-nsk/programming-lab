@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мое Резюме</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="resume" class="resume-container">
+        <header class="ripple-effect">
+            <h1 contenteditable="true" id="name">Имя Фамилия</h1>
+            <p contenteditable="true" id="job-title">Frontend Developer</p>
+        </header>
+
+        <section class="content">
+            <div class="section ripple-effect">
+                <h3>О себе</h3>
+                <p contenteditable="true">Расскажите немного о себе и своих навыках.</p>
+            </div>
+            <div class="section ripple-effect">
+                <h3>Опыт работы</h3>
+                <p contenteditable="true">Компания — Должность (2020-2024)</p>
+            </div>
+        </section>
+
+        <div class="controls">
+            <button id="download-pdf">Скачать PDF</button>
+        </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
