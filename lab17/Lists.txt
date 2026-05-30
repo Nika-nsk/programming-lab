@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.14)
+project(lab17_tests C)
+
+include(CTest)
+enable_testing()
+
+include(FetchContent)
+FetchContent_Declare(
+  unity
+  URL https://github.com/ThrowTheSwitch/unity
+  DOWNLOAD_EXTRACT_TIMESTAMP true
+)
+FetchContent_MakeAvailable(unity)
+
+add_executable(run_tests tests.c lab17.c)
+target_link_libraries(run_tests unity)
+
+
+add_test(NAME SumTest COMMAND run_tests test_sum)
+add_test(NAME DivTest COMMAND run_tests test_div)

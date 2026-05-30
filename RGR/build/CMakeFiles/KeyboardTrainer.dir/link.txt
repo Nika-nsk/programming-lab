@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/KeyboardTrainer.dir/rgr.c.o -o KeyboardTrainer 

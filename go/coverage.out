@@ -1,0 +1,11 @@
+mode: set
+task5_example/utils/file4.go:15.56,16.17 1 1
+task5_example/utils/file4.go:16.17,18.3 1 1
+task5_example/utils/file4.go:20.2,20.13 1 1
+task5_example/utils/file4.go:20.13,22.3 1 1
+task5_example/utils/file4.go:24.2,25.25 2 1
+task5_example/utils/file4.go:25.25,26.15 1 1
+task5_example/utils/file4.go:26.15,28.4 1 1
+task5_example/utils/file4.go:31.2,31.24 1 1
+task5_example/utils/file4.go:31.24,33.3 1 1
+task5_example/utils/file4.go:35.2,37.22 2 1
