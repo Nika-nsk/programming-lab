@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/atm_bin.dir/main.cpp.o CMakeFiles/atm_bin.dir/card.cpp.o CMakeFiles/atm_bin.dir/account.cpp.o CMakeFiles/atm_bin.dir/journal.cpp.o CMakeFiles/atm_bin.dir/file_storage.cpp.o CMakeFiles/atm_bin.dir/recovery.cpp.o CMakeFiles/atm_bin.dir/atm_engine.cpp.o -o atm_bin 

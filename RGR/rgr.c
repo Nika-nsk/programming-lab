@@ -98,7 +98,7 @@ int main() {
     int run = 1;
     char input[256];
     char name[50];
-    char line[100];
+    char line[100];  
     const char* target;
     FILE* file;
 
