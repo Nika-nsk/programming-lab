@@ -1,4 +1,0 @@
-/mnt/c/Users/Veronika/Documents/институт/programming/lab19/atm/build/CMakeFiles/atm_bin.dir
-/mnt/c/Users/Veronika/Documents/институт/programming/lab19/atm/build/CMakeFiles/atm_tests.dir
-/mnt/c/Users/Veronika/Documents/институт/programming/lab19/atm/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Veronika/Documents/институт/programming/lab19/atm/build/CMakeFiles/rebuild_cache.dir

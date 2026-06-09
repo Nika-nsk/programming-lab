@@ -1,3 +1,0 @@
-/mnt/c/Users/Veronika/Documents/институт/programming/RGR/build/CMakeFiles/trainer.dir
-/mnt/c/Users/Veronika/Documents/институт/programming/RGR/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Veronika/Documents/институт/programming/RGR/build/CMakeFiles/rebuild_cache.dir

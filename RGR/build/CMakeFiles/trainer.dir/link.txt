@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/trainer.dir/rgr.c.o -o trainer 
